@@ -7,6 +7,7 @@ python_library(
   dependencies=[
     '3rdparty/python:pep8',
     '3rdparty/python:pyflakes',
+    '3rdparty/python:yapf',
     'src/python/pants/backend/python/targets:python',
     'src/python/pants/backend/python/tasks:python',
     'src/python/pants/base:exceptions',

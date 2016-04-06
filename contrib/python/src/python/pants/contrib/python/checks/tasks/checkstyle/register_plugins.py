@@ -26,9 +26,12 @@ from pants.contrib.python.checks.tasks.checkstyle.trailing_whitespace_subsystem 
   TrailingWhitespaceSubsystem
 from pants.contrib.python.checks.tasks.checkstyle.variable_names_subsystem import \
   VariableNamesSubsystem
+from pants.contrib.python.checks.tasks.checkstyle.yapf_subsystem import YapfSubsystem
 
 
 def register_plugins(task):
+  # auto-formatting should come first, so the other linters read the output, not the input
+  task.register_plugin('yapf', YapfSubsystem)
   task.register_plugin('class-factoring', ClassFactoringSubsystem)
   task.register_plugin('except-statement', ExceptStatementsSubsystem)
   task.register_plugin('future-compatibility', FutureCompatibilitySubsystem)
